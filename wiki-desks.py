@@ -14,4 +14,14 @@ class DeskSpider(scrapy.Spider):
     def extract_city_page(self, response):
         for td in response.css('table.infobox>tbody>tr>td'):
             if 'web:' in td.get():
-                yield {"web": td.css('span.url>a::attr(href)').get()}
+                yield response.follow(td.css('span.url>a::attr(href)').get(),
+                                      self.extract_official_board)
+
+    def extract_official_board(self, response):
+        result = {'city-web': response.request.url, 'desk': []}
+
+        for link in response.css('a'):
+            if re.search('deska', link.get(), re.IGNORECASE):
+                result['desk'].append(link.css('::attr(href)').get())
+
+        yield result
