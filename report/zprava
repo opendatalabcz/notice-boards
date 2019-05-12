@@ -1,0 +1,18 @@
+Crawler úředních desek měst
+Mark Sobolev
+
+12. května 2019
+
+Popis projektu
+
+Cílem projektu je vytvoření crawleru úředních desek měst, který stahuje dokumenty zveřejněné na úředních deskách jednotlivých měst ČR.
+
+Způsob řešení
+
+Implementace
+Projekt je programován v jazyce Python3 s použitím frameworku Scrapy, který zjednodušuje vyhledávání dokumentů na elektronických úředních deskách.
+
+Příklad výstupu
+
+Závěr
+Byly staženy dokumenty z úředních desek pro prvních 10 měst.
